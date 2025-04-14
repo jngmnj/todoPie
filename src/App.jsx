@@ -15,16 +15,18 @@ function App() {
 
   return (
     <div className="container">
-      <div className="left">
-        <h1>Todo List</h1>
-        <TodoInput setTodo={setTodo} />
-        <TodoList todo={todo} setTodo={setTodo} />
-      </div>
-      <div className="right">
-        <Clock /> 
-        <Advice />
-        <StopWatch />
-        <Timer />
+      <div className='inner'>
+        <div className="left">
+          <h1>Todo List</h1>
+          <TodoInput setTodo={setTodo} />
+          <TodoList todo={todo} setTodo={setTodo} />
+        </div>
+        <div className="right">
+          <Clock /> 
+          <Advice />
+          <StopWatch />
+          <Timer />
+        </div>
       </div>
     </div>
   );
