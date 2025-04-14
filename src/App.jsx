@@ -1,3 +1,8 @@
+
+import Advice from '@/component/Advice';
+import Clock from '@/component/Clock';
+import StopWatch from '@/component/StopWatch';
+import Timer from '@/component/Timer';
 import TodoInput from '@/component/TodoInput';
 import TodoList from '@/component/TodoList';
 import { useState } from 'react';
@@ -10,9 +15,17 @@ function App() {
 
   return (
     <div className="container">
+      <div className="left">
         <h1>Todo List</h1>
         <TodoInput setTodo={setTodo} />
         <TodoList todo={todo} setTodo={setTodo} />
+      </div>
+      <div className="right">
+        <Clock /> 
+        <Advice />
+        <StopWatch />
+        <Timer />
+      </div>
     </div>
   );
 }
