@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import Advice from '@/component/Advice';
+import Clock from '@/component/Clock';
+import StopWatch from '@/component/StopWatch';
+import Timer from '@/component/Timer';
+import TodoInput from '@/component/TodoInput';
+import TodoList from '@/component/TodoList';
+import { useState } from 'react';
+import { v4 } from 'uuid';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [todo, setTodo] = useState([{id: v4(), content: '리액트 공부하기'}]);
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="container">
+      <div className='inner'>
+        <div className="left">
+          <h1>Todo List</h1>
+          <TodoInput setTodo={setTodo} />
+          <TodoList todo={todo} setTodo={setTodo} />
+        </div>
+        <div className="right">
+          <Clock /> 
+          <Advice />
+          <StopWatch />
+          <Timer />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
 export default App
